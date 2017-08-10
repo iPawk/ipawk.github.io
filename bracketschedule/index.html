@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    </head>
+
+    <body>
+        <div id="toggles">
+            <input type="checkbox" name="checkbox1" id="checkbox1" class="ios-toggle" onchange="lights()" checked/>
+            <label for="checkbox1" class="checkbox-label" data-off="" data-on="">></label>
+        </div>
+    
+        <h1>AU/NZ Heats</h1>
+        <p id="AUNZ"></p>
+        
+        <h1>EU Heats</h1>
+        <p id="EU"></p>
+        
+        <h1>Americas Heats</h1>
+        <p id="AMR"></p>
+
+        <script>
+            function displayDate(date, elemID){
+                document.getElementById(elemID).innerHTML = date.getDate() + "th Aug " + date.getHours() + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes();
+            }            
+            
+            var dateAU = new Date('08/11/2017 9:30:00 AM UTC');
+            var dateEU = new Date('08/12/2017 10:00:00 AM UTC');
+            var dateAMR = new Date('08/12/2017 1:00:00 AM UTC');
+            
+            displayDate(dateAU, "AUNZ");
+            displayDate(dateEU, "EU");
+            displayDate(dateAMR, "AMR");
+            
+            function lights(){
+                if (document.getElementById('checkbox1').checked){
+                    document.body.style.background = "#ffffff";
+                    
+                    var h1Elements = document.getElementsByTagName("h1");
+                    for(var i = 0; i < h1Elements.length; i++) {
+                       h1Elements[i].style.color = "#000000";
+                    }
+                    
+                    var pElements = document.getElementsByTagName("p");
+                    for(var i = 0; i < pElements.length; i++) {
+                       pElements[i].style.color = "#000000";
+                    }
+                }
+                else{
+                    document.body.style.background = "#000000";
+                    
+                    var h1Elements = document.getElementsByTagName("h1");
+                    for(var i = 0; i < h1Elements.length; i++) {
+                       h1Elements[i].style.color = "#ffffff";
+                    }
+                    
+                    var pElements = document.getElementsByTagName("p");
+                    for(var i = 0; i < pElements.length; i++) {
+                       pElements[i].style.color = "#ffffff";
+                    }
+                }
+            }
+        </script>
+    </body>
+<html>
