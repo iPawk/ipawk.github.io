@@ -103,8 +103,8 @@ body{
 }
 
 h1, h2, p{
-    font-family: Asimov;
-    text-align: center;
+    font-family: Asimov !important;
+    text-align: center !important;
 }
 
 h1{
@@ -112,7 +112,7 @@ h1{
 }
 
 h2{
-    font-size: 50px;
+    font-size: 50px !important;
 }
 
 p{
@@ -120,5 +120,5 @@ p{
 }
 
 h1, h2{
-    padding: 20px;
+    padding: 20px !important;
 }
