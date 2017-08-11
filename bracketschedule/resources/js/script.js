@@ -2,32 +2,42 @@ function displayDate(date, elemID){
     document.getElementById(elemID).innerHTML = date.getDate() + "th Aug " + date.getHours() + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes();
 }
 
-function toggleLights(mode){
-    document.body.style.background = (mode === "light") ? "#000000" : "#ffffff";
-
-    var h1Elements = document.getElementsByTagName("h1");
-    for(var i = 0; i < h1Elements.length; i++){
-       h1Elements[i].style.color = (mode === "light") ? "#ffffff" : "#000000";
-    }
-
-    var h2Elements = document.getElementsByTagName("h2");
-    for(var i = 0; i < h2Elements.length; i++){
-       h2Elements[i].style.color = (mode === "light") ? "#ffffff" : "#000000";
-    }
-    
-    var pElements = document.getElementsByTagName("p");
-    for(var i = 0; i < pElements.length; i++) {
-       pElements[i].style.color = (mode === "light") ? "#ffffff" : "#000000";
+function toggleElementsColour(elemTag, mode){
+    var elements = document.getElementsByTagName(elemTag);
+    for (var i = 0; i < elements.length; i++){
+       elements[i].style.color = (mode === "light") ? "#ffffff" : "#000000";
     }
 }
 
+function toggleLights(mode){
+    document.body.style.background = (mode === "light") ? "#000000" : "#ffffff";
+    
+    toggleElementsColour("p", mode);
+    toggleElementsColour("h1", mode);
+    toggleElementsColour("h2", mode);
+    toggleElementsColour("h3", mode);
+    
+    /*var divisions = document.getElementsByClassName("division");
+    for (var i = 0; i < division.length; i++){
+        divisions[i].style.border-top = "2px solid " + (mode === "light") ? "#000000" : "#ffffff";
+    }*/
+}
+
 var dateAU = new Date('08/11/2017 9:30:00 AM UTC');
-var dateEU = new Date('08/12/2017 10:00:00 AM UTC');
 var dateAMR = new Date('08/12/2017 1:00:00 AM UTC');
+var dateEU = new Date('08/12/2017 10:00:00 AM UTC');
+
+var dateAU2 = new Date('08/11/2017 10:30:00 AM UTC');
+var dateAMR2 = new Date('08/12/2017 2:00:00 AM UTC');
+var dateEU2 = new Date('08/12/2017 11:00:00 AM UTC');
 
 displayDate(dateAU, "AUNZ");
-displayDate(dateEU, "EU");
 displayDate(dateAMR, "AMR");
+displayDate(dateEU, "EU");
+
+displayDate(dateAU2, "AUNZ2");
+displayDate(dateAMR2, "AMR2");
+displayDate(dateEU2, "EU2");
 
 function lights(){
     if (document.getElementById('checkbox1').checked){
