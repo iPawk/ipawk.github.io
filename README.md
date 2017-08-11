@@ -1,6 +1,6 @@
 # ipawk.github.io
 
-##/bracketschedule/
+## /bracketschedule/
 
 Crux Cup - Local Time Schedule
 
