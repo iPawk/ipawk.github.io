@@ -5,7 +5,9 @@ function displayDate(date, elemID){
 function toggleElementsColour(elemTag, mode){
     var elements = document.getElementsByTagName(elemTag);
     for (var i = 0; i < elements.length; i++){
-       elements[i].style.color = (mode === "dark") ? "#ffffff" : "#000000";
+        if (!(elements[i].classList.contains("countdown"))){
+            elements[i].style.color = (mode === "dark") ? "#ffffff" : "#000000";
+        }
     }
 }
 
@@ -47,3 +49,38 @@ displayDate(dateEU, "EU");
 displayDate(dateAU2, "AUNZ2");
 displayDate(dateAMR2, "AMR2");
 displayDate(dateEU2, "EU2");
+
+var _second = 1000;
+var _minute = _second * 60;
+var _hour = _minute * 60;
+var _day = _hour * 24;
+
+function showRemaining(elemID, endDate, timer){
+    var now = new Date();
+    var distance = endDate - now;
+    
+    if (distance < 0){
+        clearInterval(timer);
+        document.getElementById(elemID).innerHTML = 'Started/Completed';
+        document.getElementById(elemID).style.color = "green";
+
+        return;
+    }
+    
+    var days = Math.floor(distance / _day);
+    var hours = Math.floor((distance % _day) / _hour);
+    var minutes = Math.floor((distance % _hour) / _minute);
+    var seconds = Math.floor((distance % _minute) / _second);
+
+    document.getElementById(elemID).innerHTML = hours + 'hrs ';
+    document.getElementById(elemID).innerHTML += minutes + 'mins ';
+    document.getElementById(elemID).innerHTML += seconds + 'secs';
+}
+
+var timerAU = setInterval(function(){showRemaining("countdownAU", dateAU, timerAU);}, 1000);
+var timerAMR = setInterval(function(){showRemaining("countdownAMR", dateAMR, timerAMR);}, 1000);
+var timerEU = setInterval(function(){showRemaining("countdownEU", dateEU, timerEU);}, 1000);
+
+var timerAU2 = setInterval(function(){showRemaining("countdownAU2", dateAU2, timerAU2);}, 1000);
+var timerAMR2 = setInterval(function(){showRemaining("countdownAMR2", dateAMR2, timerAMR2);}, 1000);
+var timerEU2 = setInterval(function(){showRemaining("countdownEU2", dateEU2, timerEU2);}, 1000);

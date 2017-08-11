@@ -140,3 +140,7 @@ h1, h2{
 .division-label{
     position: absolute !important;
 }
+
+.countdown{
+    color: red;
+}
