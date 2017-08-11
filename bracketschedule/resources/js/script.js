@@ -5,22 +5,31 @@ function displayDate(date, elemID){
 function toggleElementsColour(elemTag, mode){
     var elements = document.getElementsByTagName(elemTag);
     for (var i = 0; i < elements.length; i++){
-       elements[i].style.color = (mode === "light") ? "#ffffff" : "#000000";
+       elements[i].style.color = (mode === "dark") ? "#ffffff" : "#000000";
     }
 }
 
 function toggleLights(mode){
-    document.body.style.background = (mode === "light") ? "#000000" : "#ffffff";
+    document.body.style.background = (mode === "dark") ? "#000000" : "#ffffff";
     
     toggleElementsColour("p", mode);
     toggleElementsColour("h1", mode);
     toggleElementsColour("h2", mode);
     toggleElementsColour("h3", mode);
     
-    /*var divisions = document.getElementsByClassName("division");
-    for (var i = 0; i < division.length; i++){
-        divisions[i].style.border-top = "2px solid " + (mode === "light") ? "#000000" : "#ffffff";
-    }*/
+    var divisions = document.getElementsByClassName("division");
+    for (var i = 0; i < divisions.length; i++){
+        divisions[i].style.borderColor = (mode === "dark") ? "#ffffff" : "#000000";
+    }
+}
+
+function lights(){
+    if (document.getElementById('checkbox1').checked){
+        toggleLights("light");
+    }
+    else{
+        toggleLights("dark");
+    }
 }
 
 var dateAU = new Date('08/11/2017 9:30:00 AM UTC');
@@ -38,12 +47,3 @@ displayDate(dateEU, "EU");
 displayDate(dateAU2, "AUNZ2");
 displayDate(dateAMR2, "AMR2");
 displayDate(dateEU2, "EU2");
-
-function lights(){
-    if (document.getElementById('checkbox1').checked){
-        toggleLights("dark");
-    }
-    else{
-        toggleLights("light");
-    }
-}
