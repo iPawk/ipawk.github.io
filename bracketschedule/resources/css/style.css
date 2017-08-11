@@ -103,40 +103,40 @@ body{
 }
 
 h1, h2, p{
-    font-family: Asimov;
-    text-align: center;
+    font-family: Asimov !important;
+    text-align: center !important;
 }
 
 h1{
-    font-size: 60px;
+    font-size: 60px !important;
 }
 
 h2{
-    font-size: 50px;
+    font-size: 50px !important;
 }
 
 h3{
-    font-family: Asimov;
-    font-size: 30px;
+    font-family: Asimov !important;
+    font-size: 30px !important;
 }
 
 p{
-    font-size: 30px;
+    font-size: 30px !important;
 }
 
 h1, h2{
-    padding: 20px;
+    padding: 20px !important;
 }
 
 #notices{
-    padding-bottom: 20px;
+    padding-bottom: 20px !important;
 }
 
 .division{
-    border-top: 2px solid black;
-    padding-bottom: 20px;
+    border-top: 2px solid black !important;
+    padding-bottom: 20px !important;
 }
 
 .division-label{
-    position: absolute;
+    position: absolute !important;
 }
