@@ -42,6 +42,8 @@ var dateAU2 = new Date('08/11/2017 10:30:00 AM UTC');
 var dateAMR2 = new Date('08/12/2017 2:00:00 AM UTC');
 var dateEU2 = new Date('08/12/2017 11:00:00 AM UTC');
 
+var dateQF1 = new Date('08/19/2017 3:00:00 AM UTC');
+
 displayDate(dateAU, "AUNZ");
 displayDate(dateAMR, "AMR");
 displayDate(dateEU, "EU");
@@ -49,6 +51,8 @@ displayDate(dateEU, "EU");
 displayDate(dateAU2, "AUNZ2");
 displayDate(dateAMR2, "AMR2");
 displayDate(dateEU2, "EU2");
+
+displayDate(dateQF1, "QF1");
 
 var _second = 1000;
 var _minute = _second * 60;
@@ -72,7 +76,8 @@ function showRemaining(elemID, endDate, timer){
     var minutes = Math.floor((distance % _hour) / _minute);
     var seconds = Math.floor((distance % _minute) / _second);
 
-    document.getElementById(elemID).innerHTML = hours + 'hrs ';
+    document.getElementById(elemID).innerHTML = days + 'days ';
+    document.getElementById(elemID).innerHTML += hours + 'hrs ';
     document.getElementById(elemID).innerHTML += minutes + 'mins ';
     document.getElementById(elemID).innerHTML += seconds + 'secs';
 }
@@ -84,3 +89,5 @@ var timerEU = setInterval(function(){showRemaining("countdownEU", dateEU, timerE
 var timerAU2 = setInterval(function(){showRemaining("countdownAU2", dateAU2, timerAU2);}, 1000);
 var timerAMR2 = setInterval(function(){showRemaining("countdownAMR2", dateAMR2, timerAMR2);}, 1000);
 var timerEU2 = setInterval(function(){showRemaining("countdownEU2", dateEU2, timerEU2);}, 1000);
+
+var timerQF1 = setInterval(function(){showRemaining("countdownQF1", dateQF1, timerQF1);}, 1000);
